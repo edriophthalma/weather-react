@@ -96,10 +96,10 @@ export default function Weather() {
               </tr>
           </table>
         
-    
+    <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer>
     </div>
     ); }
   else {
-    return form;
+    return <div>{form} <br/><footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer> </div> ;
   }
 }
