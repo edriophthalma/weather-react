@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Weather.css";
 
 
 export default function Weather() {
@@ -58,7 +59,7 @@ export default function Weather() {
             <td>
               <p>
       <ul className="info-weather">
-              <li>Temperature: {Math.round(info.temperature)}ºC</li>
+              <li>Temperature: <strong>{Math.round(info.temperature)}</strong>ºC</li>
             <li>Windspeed: {info.wind}Km/h</li>
               <li>Humidity: {info.humidity}%</li>
               
