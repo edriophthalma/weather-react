@@ -31,13 +31,16 @@ export default function Weather() {
     setCity(event.target.value);
   }
   let form = (
-      <table><tr> <td>
+      <table><tr>
+    <td> 
+        <h3 className="city-result">Weather forecast in {info.name}</h3></td> 
+        <td>
     <form onSubmit={dataSearch}>
        <input type="search" placeholder="Type a city" onChange={updateCity} />
       <input type="submit" value="Search" />
+    
     </form></td>
-    <td> 
-        <h3 className="city-result">{info.name}</h3></td></tr></table>
+    </tr></table>
   );
 
   if (result) {
