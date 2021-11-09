@@ -19,9 +19,8 @@
 
   height: 200px;
   width: 800px;
-  background: linear-gradient(#fcd181b4, #faed7749, #f3676e8a);
+  background: linear-gradient(#fcd181b4, #fff78e49, #f3676e8a);
   border-radius: 2%;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

@@ -38,7 +38,7 @@ export default function Weather(props) {
         <h3 className="city-result">Weather forecast in {info.name}</h3></td> 
         <td>
     <form onSubmit={dataSearch}>
-       <input type="search" placeholder="Type a city" onChange={updateCity} />
+       <input type="search" placeholder="Type a city" onChange={updateCity} className="search-bar"/>
       <input type="submit" value="Search" />
     
     </form></td>
