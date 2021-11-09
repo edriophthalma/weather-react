@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import Calldate from "./Calldate";
 
-
-export default function Weather() {
+export default function Weather(props) {
   const [city, setCity] = useState("");
   const [result, setResult] = useState(false);
   const [info, setInfo] = useState("");
@@ -15,6 +15,7 @@ export default function Weather() {
         name: response.data.name,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
+      date: new Date(response.data.dt *1000),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -51,9 +52,10 @@ export default function Weather() {
         <table>
             <tr>
             <td>
-                <ul>
+                <ul className="main-results">
+                  <li><Calldate date={info.date}/></li>
               <li><img src={info.icon} alt="icon" /></li>
-              <li>{info.description}</li>  
+              <li className="text-capitalize">{info.description}</li>  
               </ul>
             </td>
             <td>
@@ -104,6 +106,8 @@ export default function Weather() {
     </div>
     ); }
   else {
-    return <div>{form} <br/><footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer> </div> ;
+    return <div>{form}
+     
+     <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer> </div> ;
   }
 }

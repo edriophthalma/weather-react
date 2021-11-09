@@ -4,32 +4,34 @@
 }
 
 .App-header {
+  margin: auto;
+  display: block;
+  text-align: center;
+  padding: 30px auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
-  background-color: #b2b5f7;
-  border-style: double;
 
   height: 200px;
   width: 800px;
-  background: linear-gradient(#81fcf0b4, #faed7749, #f367e38a);
+  background: linear-gradient(#fcd181b4, #faed7749, #f3676e8a);
   border-radius: 2%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.city-result {
-  text-align: right;
-}
-
 ul {
   list-style-type: none;
+  display: block;
 }
 
 .info-weather {

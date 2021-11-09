@@ -1,5 +1,14 @@
 form {
   display: block;
-  text-align: right;
+
   padding: 30px 80px;
+}
+footer {
+  color: #fde0a8;
+}
+
+.main-results {
+  text-align: center;
+  display: block;
+  margin: 30px;
 }
