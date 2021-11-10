@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import UpDate from "./UpDate";
+import TempConversion from "./TempConversion";
 
 
 export default function Weather(props) {
   const [city, setCity] = useState("");
-  const [result, setResult] = useState(false);
-  const [info, setInfo] = useState("");
+ 
+  const [info, setInfo] = useState({ready: false});
 
   function displayWeather(response) {
-    setResult(true);
-    
-
+   
     setInfo({
-        name: response.data.name,
+      ready: true,
+      name: response.data.name,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
@@ -22,7 +22,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     });
-  }
+    }
 
   function dataSearch(event) {
     event.preventDefault();
@@ -48,15 +48,16 @@ export default function Weather(props) {
     </tr></tbody></table>
   );
 
-  if (result) {
+  if (info.ready) {
     return (
       <div>
         {form}
+        <div >
         <table>
             <tr>
             <td>
                 <ul className="main-results">
-              <li><UpDate date={info.date} /></li>
+              <li><UpDate date={info.date}/></li>
               <li><img src={info.icon} alt="icon" /></li>
               <li className="text-capitalize">{info.description}</li>  
               </ul>
@@ -64,7 +65,7 @@ export default function Weather(props) {
             <td>
               <p>
       <ul className="info-weather">
-              <li>Temperature: <strong>{Math.round(info.temperature)}</strong>ºC</li>
+              <li><TempConversion celsius={info.temperature}/></li>
             <li>Windspeed: {info.wind}Km/h</li>
               <li>Humidity: {info.humidity}%</li>
               
@@ -104,7 +105,7 @@ export default function Weather(props) {
                      </ul></td>
               </tr>
           </table>
-        
+        </div>
     <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer>
     </div>
     ); }
@@ -114,3 +115,7 @@ export default function Weather(props) {
       </div> ;
   }
 }
+function newFunction(setResult) {
+  setResult(true);
+}
+
