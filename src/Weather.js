@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import Calldate from "./Calldate";
+import UpDate from "./UpDate";
+
 
 export default function Weather(props) {
   const [city, setCity] = useState("");
@@ -10,12 +11,13 @@ export default function Weather(props) {
 
   function displayWeather(response) {
     setResult(true);
+    
 
     setInfo({
         name: response.data.name,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
-      date: new Date(response.data.dt *1000),
+      date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -33,7 +35,8 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
   let form = (
-      <table><tr>
+      <table>
+        <tbody><tr>
     <td> 
         <h3 className="city-result">Weather forecast in {info.name}</h3></td> 
         <td>
@@ -42,7 +45,7 @@ export default function Weather(props) {
       <input type="submit" value="Search" />
     
     </form></td>
-    </tr></table>
+    </tr></tbody></table>
   );
 
   if (result) {
@@ -53,7 +56,7 @@ export default function Weather(props) {
             <tr>
             <td>
                 <ul className="main-results">
-                  <li><Calldate date={info.date}/></li>
+              <li><UpDate date={info.date} /></li>
               <li><img src={info.icon} alt="icon" /></li>
               <li className="text-capitalize">{info.description}</li>  
               </ul>
@@ -107,7 +110,7 @@ export default function Weather(props) {
     ); }
   else {
     return <div>{form}
-     
-     <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer> </div> ;
+      
+      </div> ;
   }
 }

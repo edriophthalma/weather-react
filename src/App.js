@@ -7,9 +7,10 @@ function App() {
     <div className="App">
       <div className="container">
       <header className="App-header">
-        <Weather city="New York"/>
+        <Weather defaultCity="Palermo"/>
       
       </header>
+      <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer>
       </div>
     </div>
   );
