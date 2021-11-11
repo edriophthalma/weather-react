@@ -7,11 +7,10 @@ import TempConversion from "./TempConversion";
 
 export default function Weather(props) {
   const [city, setCity] = useState("");
- 
+ const [result, setResult] = useState(false);
   const [info, setInfo] = useState({ready: false});
 
   function displayWeather(response) {
-   
     setInfo({
       ready: true,
       name: response.data.name,
@@ -22,11 +21,17 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     });
+    setResult(true);
     }
 
-  function dataSearch(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "c5e04ad803ec417da869647e91a10830";
+    dataSearch();
+  }
+
+  function dataSearch(event) {
+    
+    let apiKey = "2d50c0d7967e795bde908aa93c3e908d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
@@ -40,7 +45,7 @@ export default function Weather(props) {
     <td> 
         <h3 className="city-result">Weather forecast in {info.name}</h3></td> 
         <td>
-    <form onSubmit={dataSearch}>
+    <form onSubmit={handleSubmit}>
        <input type="search" placeholder="Type a city" onChange={updateCity} className="search-bar"/>
       <input type="submit" value="Search" />
     
@@ -65,7 +70,7 @@ export default function Weather(props) {
             <td>
               <p>
       <ul className="info-weather">
-              <li><TempConversion celsius={info.temperature}/></li>
+              <li>Temperature:<TempConversion celsius={info.temperature}/></li>
             <li>Windspeed: {info.wind}Km/h</li>
               <li>Humidity: {info.humidity}%</li>
               
@@ -106,16 +111,11 @@ export default function Weather(props) {
               </tr>
           </table>
         </div>
-    <footer><a href="https://github.com/edriophthalma/weather-react.git" alt="Giulia's code">Open-source code by Giulia D'Angelo</a></footer>
+   
     </div>
     ); }
   else {
-    return <div>{form}
-      
-      </div> ;
+    
+    return <div>{form}</div>;
   }
-}
-function newFunction(setResult) {
-  setResult(true);
-}
-
+}   

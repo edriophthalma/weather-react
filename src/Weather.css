@@ -27,3 +27,18 @@ input:hover {
   background-color: #f3676e8a;
   pointer-events: visiblePainted;
 }
+p {
+  font-size: 60%;
+  padding: 20px auto;
+}
+
+.info-weather {
+  margin-left: 90%;
+  text-align: right;
+  margin-right: 0;
+}
+
+ul {
+  list-style-type: none;
+  display: block;
+}

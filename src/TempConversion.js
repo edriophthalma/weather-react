@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 export default function TempConversion(props) {
-    const [unit, setUnit] = useState(`celsius`);
+    const [unit, setUnit] = useState("celsius");
     function convertF(event) {
         event.preventDefault();
         setUnit("fahrenheit");
@@ -15,9 +15,9 @@ export default function TempConversion(props) {
     
     return(
         <div className="temperature">
-        <span className="TempConversion">
-        <strong>{Math.round(props.celsius)}</strong>ºC | º<a href="/" onclick={convertF}>F</a>
-        </span>
+        
+        <strong>{Math.round(props.celsius)}</strong>ºC|º<a href="/" onclick={convertF}>F</a>
+     
         </div>
     );}
     else {
@@ -25,7 +25,7 @@ export default function TempConversion(props) {
         return (
          <div className="temperature">
         <span className="TempConversion">
-        <strong>{Math.round(fahrenheit)}</strong>ºF | º<a href="/" onclick={convertC}>C</a>
+         <a href="/" onclick={convertC}>ºC | </a><strong>{Math.round(fahrenheit)}</strong>ºF
         </span>
         </div>  
         );

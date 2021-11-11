@@ -24,25 +24,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-ul {
-  list-style-type: none;
-  display: block;
-}
-
-.info-weather {
-  margin-left: 90%;
-  text-align: right;
-  margin-right: 0;
-}
-
-p {
-  font-size: 60%;
-  padding: 20px auto;
-}
 footer {
   font-size: small;
 }
